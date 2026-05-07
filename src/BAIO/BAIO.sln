@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32519.111
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BAIO", "BAIO.csproj", "{3A7B0282-4D53-489F-BA15-481FEDD0FAF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A7B0282-4D53-489F-BA15-481FEDD0FAF1}.Debug|x64.ActiveCfg = Debug|x64
+		{3A7B0282-4D53-489F-BA15-481FEDD0FAF1}.Debug|x64.Build.0 = Debug|x64
+		{3A7B0282-4D53-489F-BA15-481FEDD0FAF1}.Release|x64.ActiveCfg = Release|x64
+		{3A7B0282-4D53-489F-BA15-481FEDD0FAF1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96954326-F941-44CF-A869-CA7F7472EA37}
+	EndGlobalSection
+EndGlobal

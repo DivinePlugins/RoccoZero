@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+    <Configurations>Release</Configurations>
+    <Configuration>Release</Configuration>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+
+    <OutputPath>.\bin\</OutputPath>
+    <IntermediateOutputPath>.\obj\</IntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Divine">
+      <HintPath>..\..\..\..\..\..\Program Files\Divine\References\Divine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

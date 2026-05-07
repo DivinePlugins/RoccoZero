@@ -1,0 +1,44 @@
+﻿// <copyright file="item_magic_wand.cs" company="Ensage">
+//    Copyright (c) 2017 Ensage.
+// </copyright>
+
+namespace Ensage.SDK.Abilities.Items
+{
+    using Divine.Entity.Entities.Abilities.Items;
+    using Divine.Extensions;
+
+    using Ensage.SDK.Abilities.Components;
+
+    public class item_magic_wand : ActiveAbility, IHasHealthRestore, IHasManaRestore
+    {
+        public item_magic_wand(Item item)
+            : base(item)
+        {
+        }
+
+        public override bool CanBeCasted
+        {
+            get
+            {
+                return this.Item.CurrentCharges > 0 && base.CanBeCasted;
+            }
+        }
+
+        public float TotalHealthRestore
+        {
+            get
+            {
+                var chargeRestore = this.Ability.GetAbilitySpecialData("restore_per_charge");
+                return this.Item.CurrentCharges * chargeRestore;
+            }
+        }
+
+        public float TotalManaRestore
+        {
+            get
+            {
+                return this.TotalHealthRestore;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32505.426
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zero.Core", "Zero.Core\Zero.Core.csproj", "{5BE57C0B-A086-4F97-8109-D8B2925ABEF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zero.SkywrathMage", "Zero.SkywrathMage\Zero.SkywrathMage.csproj", "{BD4DB9CD-C6B4-40E9-9CEC-17CE7CCD9694}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zero.Zeus", "Zero.Zeus\Zero.Zeus.csproj", "{8CC8DD8E-FF2E-4731-8393-1860BD7C36CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BE57C0B-A086-4F97-8109-D8B2925ABEF5}.Debug|x64.ActiveCfg = Debug|x64
+		{5BE57C0B-A086-4F97-8109-D8B2925ABEF5}.Debug|x64.Build.0 = Debug|x64
+		{5BE57C0B-A086-4F97-8109-D8B2925ABEF5}.Release|x64.ActiveCfg = Release|x64
+		{5BE57C0B-A086-4F97-8109-D8B2925ABEF5}.Release|x64.Build.0 = Release|x64
+		{BD4DB9CD-C6B4-40E9-9CEC-17CE7CCD9694}.Debug|x64.ActiveCfg = Debug|x64
+		{BD4DB9CD-C6B4-40E9-9CEC-17CE7CCD9694}.Debug|x64.Build.0 = Debug|x64
+		{BD4DB9CD-C6B4-40E9-9CEC-17CE7CCD9694}.Release|x64.ActiveCfg = Release|x64
+		{BD4DB9CD-C6B4-40E9-9CEC-17CE7CCD9694}.Release|x64.Build.0 = Release|x64
+		{8CC8DD8E-FF2E-4731-8393-1860BD7C36CE}.Debug|x64.ActiveCfg = Debug|x64
+		{8CC8DD8E-FF2E-4731-8393-1860BD7C36CE}.Debug|x64.Build.0 = Debug|x64
+		{8CC8DD8E-FF2E-4731-8393-1860BD7C36CE}.Release|x64.ActiveCfg = Release|x64
+		{8CC8DD8E-FF2E-4731-8393-1860BD7C36CE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09EDB023-588E-4E7B-8109-1E3246CCE312}
+	EndGlobalSection
+EndGlobal

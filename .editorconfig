@@ -1,0 +1,34 @@
+root = true
+
+[*]
+end_of_line = crlf
+insert_final_newline = true
+charset = utf-8
+
+[*.cs]
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+trim_trailing_whitespace = true
+
+dotnet_diagnostic.CS4014.severity = none
+dotnet_diagnostic.IDE0065.severity = suggestion
+
+# SYSLIB1054: Use 'LibraryImportAttribute' instead of 'DllImportAttribute' to generate P/Invoke marshalling code at compile time
+dotnet_diagnostic.SYSLIB1054.severity = warning
+
+# CA1852: Seal internal types
+dotnet_diagnostic.CA1852.severity = warning
+
+# warning CS8002: У сборки "ImGui.NET", на которую дается ссылка, нет строгого имени.
+dotnet_diagnostic.CS8002.severity = none
+
+# Пространство имен не соответствует структуре папок (IDE0130)
+dotnet_diagnostic.IDE0130.severity = none
+
+# Полностью отключаем CA1822 для public или internal API
+dotnet_code_quality.CA1822.api_surface = private
+
+# Исключение методов FirstOrDefault и LastOrDefault
+dotnet_code_quality.CA1826.exclude_ordefault_methods = true

@@ -1,0 +1,9 @@
+<Project>
+
+  <Import Sdk="Divine.Sdk" Project="Sdk.props" />
+
+  <PropertyGroup>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+</Project>

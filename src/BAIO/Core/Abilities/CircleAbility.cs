@@ -1,0 +1,33 @@
+// <copyright file="CircleAbility.cs" company="Ensage">
+//    Copyright (c) 2017 Ensage.
+// </copyright>
+
+namespace Ensage.SDK.Abilities
+{
+    using System.Linq;
+
+    using Divine.Entity.Entities.Abilities;
+    using Divine.Entity.Entities.Units;
+    using Divine.Extensions;
+    using Divine.Prediction;
+
+    using Ensage.SDK.Extensions;
+    using Ensage.SDK.Prediction;
+
+    public abstract class CircleAbility : PredictionAbility
+    {
+        protected CircleAbility(Ability ability)
+            : base(ability)
+        {
+        }
+
+        public override PredictionSkillshotType PredictionSkillshotType { get; } = PredictionSkillshotType.SkillshotCircle;
+
+        public override float Speed { get; } = float.MaxValue;
+
+        public override bool CanHit(params Unit[] targets)
+        {
+            return targets.All(x => x.Distance2D(this.Owner) < (this.CastRange + this.Radius));
+        }
+    }
+}

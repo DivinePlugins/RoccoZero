@@ -1,0 +1,5 @@
+<Project>
+
+  <Import Sdk="Divine.Sdk" Project="Sdk.targets" />
+
+</Project>

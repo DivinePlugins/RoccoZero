@@ -1,0 +1,47 @@
+﻿// <copyright file="item_mekansm.cs" company="Ensage">
+//    Copyright (c) 2017 Ensage.
+// </copyright>
+
+namespace Ensage.SDK.Abilities.Items
+{
+    using Divine.Entity.Entities.Abilities.Items;
+    using Divine.Extensions;
+
+    using Ensage.SDK.Abilities.Components;
+
+    public class item_mekansm : ActiveAbility, IAreaOfEffectAbility, IAuraAbility, IHasModifier, IHasHealthRestore
+    {
+        public item_mekansm(Item item)
+            : base(item)
+        {
+        }
+
+        public string AuraModifierName { get; } = "modifier_item_mekansm_aura";
+
+        public float AuraRadius
+        {
+            get
+            {
+                return this.Ability.GetAbilitySpecialData("aura_radius");
+            }
+        }
+
+        public string ModifierName { get; } = "modifier_item_mekansm_spell";
+
+        public float Radius
+        {
+            get
+            {
+                return this.Ability.GetAbilitySpecialData("heal_radius");
+            }
+        }
+
+        public float TotalHealthRestore
+        {
+            get
+            {
+                return this.Ability.GetAbilitySpecialData("heal_amount");
+            }
+        }
+    }
+}

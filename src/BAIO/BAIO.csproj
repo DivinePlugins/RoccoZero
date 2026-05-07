@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+
+    <OutputPath>.\bin\</OutputPath>
+    <IntermediateOutputPath>.\obj\</IntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Core\Resources\AbilityDatabase.json" />
+    <None Remove="Core\Resources\UnitDatabase.json" />
+    <None Remove="Localization\cn.json" />
+    <None Remove="Localization\en.json" />
+    <None Remove="Localization\ru.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Core\Resources\AbilityDatabase.json" />
+    <EmbeddedResource Include="Core\Resources\UnitDatabase.json" />
+    <EmbeddedResource Include="Localization\cn.json" />
+    <EmbeddedResource Include="Localization\en.json" />
+    <EmbeddedResource Include="Localization\ru.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Divine">
+      <HintPath>..\..\..\..\..\..\Program Files\Divine\References\Divine.dll</HintPath>
+    </Reference>
+    <Reference Include="Divine.Zero">
+      <HintPath>..\..\..\..\..\..\Program Files\Divine\References\Divine.Zero.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="Compiler" AfterTargets="PostBuildEvent">
+    <Exec Command="if exist &quot;C:\Users\RoccoZero\Desktop\Divine.System\bin\Release\Divine.Client.exe&quot; call &quot;C:\Users\RoccoZero\Desktop\Divine.System\bin\Release\Divine.Client.exe&quot; -PostBuildEvent -TargetPath=&quot;$(TargetPath)&quot;" />
+  </Target>
+
+</Project>

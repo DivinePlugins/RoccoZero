@@ -1,0 +1,9 @@
+﻿<Project Sdk="Divine.NET.Sdk">
+
+  <ItemGroup>
+    <Compile Include="..\Zero.Core\**\*.cs" LinkBase="Zero.Core" />
+    <Compile Remove="..\Zero.Core\obj\**" />
+    <Compile Remove="..\Zero.Core\bin\**" />
+  </ItemGroup>
+
+</Project>

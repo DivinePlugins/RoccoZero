@@ -1,0 +1,53 @@
+﻿// <copyright file="storm_spirit_overload.cs" company="Ensage">
+//    Copyright (c) 2017 Ensage.
+// </copyright>
+
+namespace Ensage.SDK.Abilities.npc_dota_hero_storm_spirit
+{
+    using System.Linq;
+
+    using Divine.Entity.Entities.Abilities;
+    using Divine.Entity.Entities.Units;
+    using Divine.Extensions;
+
+    using Ensage.SDK.Abilities.Components;
+    using Ensage.SDK.Helpers;
+
+    public class storm_spirit_overload : PassiveAbility, IHasModifier, IHasTargetModifier, IAreaOfEffectAbility
+    {
+        public storm_spirit_overload(Ability ability)
+            : base(ability)
+        {
+        }
+
+        public string ModifierName { get; } = "modifier_storm_spirit_overload";
+
+        public float Radius
+        {
+            get
+            {
+                return this.Ability.GetAbilitySpecialData("overload_aoe");
+            }
+        }
+
+        public string TargetModifierName { get; } = "modifier_storm_spirit_overload_debuff";
+
+        public override float GetDamage(params Unit[] targets)
+        {
+            var target = targets.FirstOrDefault();
+            var owner = this.Owner;
+            if (target == null)
+            {
+                return this.RawDamage + owner.MinimumDamage + owner.BonusDamage;
+            }
+
+            var attackDamage = owner.GetAttackDamage(target);
+
+            var amplify = this.Owner.GetSpellAmplification();
+            var reduction = this.Ability.GetDamageReduction(target, this.DamageType);
+            var abilityDamage = DamageHelpers.GetSpellDamage(this.RawDamage, amplify, reduction);
+
+            return attackDamage + abilityDamage;
+        }
+    }
+}
