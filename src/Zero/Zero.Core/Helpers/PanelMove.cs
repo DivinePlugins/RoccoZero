@@ -1,12 +1,10 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
 using Divine.Core.Extensions;
 using Divine.Game;
 using Divine.Input;
 using Divine.Input.EventArgs;
-using Divine.Numerics;
-using Divine.Common.Log;
 
 namespace Divine.Core.Helpers
 {
@@ -44,14 +42,14 @@ namespace Divine.Core.Helpers
                     InputManager.MouseKeyUp += OnMouseKeyUp;
                     InputManager.MouseMove += OnMouseMove;
                     DisableTime();
-                    LogManager.Info("Activate Move");
+                    Logger.LogInformation("Activate Move");
                 }
                 else
                 {
                     InputManager.MouseKeyDown -= OnMouseKeyDown;
                     InputManager.MouseKeyUp -= OnMouseKeyUp;
                     InputManager.MouseMove -= OnMouseMove;
-                    LogManager.Info("Deactivate Move");
+                    Logger.LogInformation("Deactivate Move");
                 }
 
                 IsActivateMove = value;
@@ -80,7 +78,7 @@ namespace Divine.Core.Helpers
             if (ActivateMove)
             {
                 ActivateMove = false;
-                LogManager.Info("Time is Over Move");
+                Logger.LogInformation("Time is Over Move");
             }
         }
 
@@ -95,7 +93,7 @@ namespace Divine.Core.Helpers
                 return;
             }
 
-            if (e.Position.IsUnderRectangle(new RectangleF(Position.X - 5, Position.Y - 5, Size.X, Size.Y)))
+            if (e.Position.IsUnderRectangle(new Rect(Position.X - 5, Position.Y - 5, Size.X, Size.Y)))
             {
                 DragMouseDiff = e.Position - Position;
                 PanelDragged = true;

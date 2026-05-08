@@ -1,11 +1,10 @@
-﻿namespace Divine.SkywrathMage.Combos;
+namespace Divine.SkywrathMage.Combos;
 
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Divine.Common.Log;
 using Divine.Core.ComboFactory;
 using Divine.Core.ComboFactory.Menus.Combo;
 using Divine.Core.Entities;
@@ -95,7 +94,7 @@ internal sealed class AutoArcaneBolt : BaseTaskHandler
             arcaneBolt.UseAbility(target);
             var castDelay = arcaneBolt.GetCastDelay(target);
             var hitTime = arcaneBolt.GetHitTime(target) - (castDelay + 340);
-            MultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBolt.Name}", castDelay + 40, hitTime);
+            ZMultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBolt.Name}", castDelay + 40, hitTime);
             await Task.Delay(castDelay, token);
         }
         catch (TaskCanceledException)
@@ -104,7 +103,7 @@ internal sealed class AutoArcaneBolt : BaseTaskHandler
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
     }
 }

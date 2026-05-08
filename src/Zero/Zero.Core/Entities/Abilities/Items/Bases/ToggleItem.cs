@@ -1,6 +1,5 @@
 using Divine.Entity.Entities.Abilities.Items;
 using Divine.Game;
-using Divine.Common.Log;
 
 namespace Divine.Core.Entities.Abilities.Items.Bases
 {
@@ -22,7 +21,7 @@ namespace Divine.Core.Entities.Abilities.Items.Bases
             {
                 if (!CanBeCasted)
                 {
-                    LogManager.Debug($"blocked {this}");
+                    Logger.LogDebug($"blocked {this}");
                     return;
                 }
 

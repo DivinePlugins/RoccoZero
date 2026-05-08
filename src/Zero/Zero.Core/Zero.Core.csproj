@@ -1,4 +1,4 @@
-﻿<Project Sdk="Divine.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="$(SolutionDir)Zero.SkywrathMage\Resources" />

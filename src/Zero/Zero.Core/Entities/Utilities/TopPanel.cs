@@ -1,4 +1,4 @@
-﻿namespace Divine.Core.Entities.Utilities;
+namespace Divine.Core.Entities.Utilities;
 
 using Divine.Core.Helpers;
 using Divine.Entity.Entities.Components;
@@ -37,7 +37,7 @@ public sealed class TopPanel
             VisibleIconName = "hero_visible_right";
         }
 
-        VisibleIconRectangle = new RectangleF(IconPosition.X - 4, IconPosition.Y + 4.5f, SizeX + 8.5f, SizeY - 5);
+        VisibleIconRectangle = new Rect(IconPosition.X - 4, IconPosition.Y + 4.5f, SizeX + 8.5f, SizeY - 5);
     }
 
     public Vector2 HelthManaBackPosition { get; }
@@ -80,5 +80,5 @@ public sealed class TopPanel
 
     public string VisibleIconName { get; }
 
-    public RectangleF VisibleIconRectangle { get; }
+    public Rect VisibleIconRectangle { get; }
 }

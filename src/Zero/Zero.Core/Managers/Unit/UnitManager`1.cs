@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using Divine.Core.Entities;
 using Divine.Core.Managers.Unit.Delegates;
-using Divine.Common.Log;
 
 namespace Divine.Core.Managers.Unit
 {
@@ -33,7 +28,7 @@ namespace Divine.Core.Managers.Unit
                     }
                     catch (Exception e)
                     {
-                        LogManager.Error(e);
+                        Logger.LogError(e);
                     }
                 }
 

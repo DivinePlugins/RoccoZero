@@ -123,7 +123,7 @@ public abstract class ActiveSpell : CAbility, IActiveAbility
         return GetCastDelay(position) + (int)((time + ActivationDelay) * 1000.0f);
     }
 
-    private protected static readonly Sleeper CastSleeper = new Sleeper();
+    private protected static readonly ZSleeper CastSleeper = new ZSleeper();
 
     public override bool UseAbility()
     {

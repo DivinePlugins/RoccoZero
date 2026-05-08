@@ -123,7 +123,7 @@ public abstract class ActiveItem : CItem, IActiveAbility
         return GetCastDelay(position) + (int)((time + ActivationDelay) * 1000.0f);
     }
 
-    private readonly Sleeper castSleeper = new Sleeper();
+    private readonly ZSleeper castSleeper = new ZSleeper();
 
     public override bool UseAbility()
     {

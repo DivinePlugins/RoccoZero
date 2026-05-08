@@ -1,8 +1,3 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
 using Divine.Core.ComboFactory;
 using Divine.Core.ComboFactory.Menus;
 using Divine.Core.Entities;
@@ -11,7 +6,6 @@ using Divine.Core.Managers.Unit;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Menu.EventArgs;
 using Divine.Menu.Items;
-using Divine.Common.Log;
 
 namespace Divine.SkywrathMage.Features
 {
@@ -118,7 +112,7 @@ namespace Divine.SkywrathMage.Features
             }
             catch (Exception e)
             {
-                LogManager.Error(e);
+                Logger.LogError(e);
             }
         }
 

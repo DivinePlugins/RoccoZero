@@ -1,4 +1,4 @@
-﻿namespace Divine.Zeus.Features;
+namespace Divine.Zeus.Features;
 
 using System;
 using System.Collections.Generic;
@@ -18,11 +18,9 @@ using Divine.Entity.Entities.Units.Heroes;
 using Divine.Extensions;
 using Divine.Menu.EventArgs;
 using Divine.Menu.Items;
-using Divine.Numerics;
 using Divine.Particle;
 using Divine.Particle.EventArgs;
 using Divine.Update;
-using Divine.Common.Log;
 using Divine.Zeus.Menus;
 
 internal sealed class AbilityBreaker : BaseTaskHandler
@@ -218,7 +216,7 @@ internal sealed class AbilityBreaker : BaseTaskHandler
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
     }
 

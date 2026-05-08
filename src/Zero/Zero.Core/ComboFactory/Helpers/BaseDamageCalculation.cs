@@ -1,4 +1,4 @@
-﻿namespace Divine.Core.ComboFactory.Helpers;
+namespace Divine.Core.ComboFactory.Helpers;
 
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,6 @@ using Divine.Menu.EventArgs;
 using Divine.Menu.Items;
 using Divine.Modifier.Modifiers;
 using Divine.Update;
-using Divine.Common.Log;
 
 public abstract class BaseDamageCalculation
 {
@@ -185,7 +184,7 @@ public abstract class BaseDamageCalculation
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
     }
 

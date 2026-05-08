@@ -1,4 +1,4 @@
-﻿namespace Divine.Zeus.Combos;
+namespace Divine.Zeus.Combos;
 
 using System;
 using System.Threading;
@@ -18,7 +18,6 @@ using Divine.Entity.Entities.EventArgs;
 using Divine.Extensions;
 using Divine.Game;
 using Divine.Update;
-using Divine.Common.Log;
 using Divine.Zeus.Menus.Combo;
 
 internal sealed class Combo : BaseCombo
@@ -257,7 +256,7 @@ internal sealed class Combo : BaseCombo
                         && ethereal.CanHit(target))
                     {
                         ethereal.UseAbility(target);
-                        MultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
+                        ZMultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
                         await Task.Delay(ethereal.GetCastDelay(target), token);
                         return;
                     }
@@ -273,7 +272,7 @@ internal sealed class Combo : BaseCombo
                         await Task.Delay(shivas.GetCastDelay(), token);
                     }
 
-                    if (!MultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
+                    if (!ZMultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
                     {
                         // LightningBolt
                         var lightningBolt = Abilities.LightningBolt;
@@ -288,7 +287,7 @@ internal sealed class Combo : BaseCombo
                             else if (methodsItem == "Prediction On Position" || methodsItem == "On Target & Prediction On Position")
                             {
                                 var position = lightningBolt.LightningBoltPrediction(target, isLightningBoltOnPosition);
-                                if (!position.IsZero)
+                                if (!position.IsDefault)
                                 {
                                     lightningBolt.UseAbility(position);
                                     await Task.Delay(lightningBolt.GetCastDelay(position), token);
@@ -380,7 +379,7 @@ internal sealed class Combo : BaseCombo
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
     }
 

@@ -1,4 +1,4 @@
-﻿namespace Divine.Core.Entities;
+namespace Divine.Core.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Linq;
 using Divine.Core.Entities.Abilities.Items;
 using Divine.Core.Entities.Utilities;
 using Divine.Core.Extensions;
+using Divine.Core.Helpers;
 using Divine.Core.Managers.Orbwalker;
 using Divine.Core.Managers.Unit;
 using Divine.Entity.Entities;
@@ -23,7 +24,6 @@ using Divine.Game;
 using Divine.Helpers;
 using Divine.Modifier.Modifiers;
 using Divine.Numerics;
-using Divine.Common.Log;
 
 public class CUnit : CEntity
 {
@@ -530,13 +530,13 @@ public class CUnit : CEntity
 
         if (invisibleSleeper == null)
         {
-            invisibleSleeper = new Sleeper();
+            invisibleSleeper = new ZSleeper();
         }
 
         invisibleSleeper.Sleep(milliseconds);
     }
 
-    private Sleeper invisibleSleeper;
+    private ZSleeper invisibleSleeper;
 
     public bool IsUnsafeInvisible
     {

@@ -1,9 +1,8 @@
-﻿namespace Divine.Core.Managers.Unit;
+namespace Divine.Core.Managers.Unit;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 using Divine.Core.Entities;
 using Divine.Core.Extensions;
@@ -26,7 +25,6 @@ using Divine.Order;
 using Divine.Order.EventArgs;
 using Divine.Order.Orders.Components;
 using Divine.Update;
-using Divine.Common.Log;
 
 using DivineAbility = Entity.Entities.Abilities.Ability;
 using DivineUnit = Entity.Entities.Units.Unit;
@@ -90,7 +88,7 @@ public sealed class UnitManager
                 }
                 catch (Exception e)
                 {
-                    LogManager.Error(e);
+                    Logger.LogError(e);
                 }
             }
 

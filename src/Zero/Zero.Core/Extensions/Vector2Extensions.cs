@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Divine.Core.Entities;
 using Divine.Extensions;
@@ -13,7 +13,7 @@ namespace Divine.Core.Extensions
             return target.Position.IsInRange(sourcePosition, range);
         }
 
-        public static bool IsUnderRectangle(this Vector2 position, RectangleF rectangleF)
+        public static bool IsUnderRectangle(this Vector2 position, Rect rectangleF)
         {
             return position.IsUnderRectangle(rectangleF.X, rectangleF.Y, rectangleF.Width, rectangleF.Height);
         }

@@ -1,8 +1,7 @@
-﻿using System.Linq;
+using System.Linq;
 
 using Divine.Core.Entities;
 using Divine.Entity.Entities.Abilities;
-using Divine.Common.Log;
 
 namespace Divine.Core.Extensions
 {
@@ -18,7 +17,7 @@ namespace Divine.Core.Extensions
             var data = ability.AbilitySpecialData.FirstOrDefault(x => x.Name == name);
             if (data == null)
             {
-                LogManager.Error($"BrokenAbilitySpecialData => Ability: {ability.Name}, SpecialData: {name}");
+                Logger.LogError($"BrokenAbilitySpecialData => Ability: {ability.Name}, SpecialData: {name}");
                 return 0;
             }
 

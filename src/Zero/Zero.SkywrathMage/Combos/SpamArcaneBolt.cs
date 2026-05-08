@@ -1,8 +1,3 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
 using Divine.Core.ComboFactory;
 using Divine.Core.Entities;
 using Divine.Core.Extensions;
@@ -14,11 +9,9 @@ using Divine.Extensions;
 using Divine.Game;
 using Divine.Menu.EventArgs;
 using Divine.Menu.Items;
-using Divine.Numerics;
 using Divine.Particle;
 using Divine.SkywrathMage.Menus;
 using Divine.Update;
-using Divine.Common.Log;
 
 namespace Divine.SkywrathMage.Combos
 {
@@ -144,7 +137,7 @@ namespace Divine.SkywrathMage.Combos
                         arcaneBolt.UseAbility(target);
                         var castDelay = arcaneBolt.GetCastDelay(target);
                         var hitTime = arcaneBolt.GetHitTime(target) - (castDelay + 340);
-                        MultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBolt.Name}", castDelay + 40, hitTime);
+                        ZMultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBolt.Name}", castDelay + 40, hitTime);
                         await Task.Delay(castDelay, token);
                     }
                 }
@@ -157,7 +150,7 @@ namespace Divine.SkywrathMage.Combos
             }
             catch (Exception e)
             {
-                LogManager.Error(e);
+                Logger.LogError(e);
             }
         }
 

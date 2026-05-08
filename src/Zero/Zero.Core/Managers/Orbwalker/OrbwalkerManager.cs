@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using Divine.Core.Entities;
 using Divine.Core.Entities.Abilities.Spells.Bases;
 using Divine.Core.Extensions;
+using Divine.Core.Helpers;
 using Divine.Entity.Entities.Players;
 using Divine.Game;
-using Divine.Helpers;
-using Divine.Numerics;
 using Divine.Update;
-using Divine.Common.Log;
 
 namespace Divine.Core.Managers.Orbwalker
 {
@@ -30,9 +24,9 @@ namespace Divine.Core.Managers.Orbwalker
 
         private static readonly Dictionary<uint, OrbwalkerManager> Orbwalks = new Dictionary<uint, OrbwalkerManager>();
 
-        private static readonly Sleeper orbwalkSleeper = new Sleeper();
+        private static readonly ZSleeper orbwalkSleeper = new ZSleeper();
 
-        private readonly Sleeper turnEndSleeper = new Sleeper();
+        private readonly ZSleeper turnEndSleeper = new ZSleeper();
 
         private float orderTime;
 
@@ -107,7 +101,7 @@ namespace Divine.Core.Managers.Orbwalker
                 }
                 catch (Exception e)
                 {
-                    LogManager.Error(e);
+                    Logger.LogError(e);
                 }
 
                 Orbwalks.Clear();
@@ -326,7 +320,7 @@ namespace Divine.Core.Managers.Orbwalker
         private void Move(CUnit unit, CUnit target, OrbwalkerManager orderOrbwalk, IEnumerable<OrbwalkerManager> orbwalks, float time)
         {
             var movePosition = orderOrbwalk.Position;
-            if (!movePosition.IsZero && unit.Distance2D(movePosition) > 30 && unit.CanMove(time))
+            if (!movePosition.IsDefault && unit.Distance2D(movePosition) > 30 && unit.CanMove(time))
             {
                 var isValidTarget = target != null;
                 var moves = orbwalks.Where(x =>

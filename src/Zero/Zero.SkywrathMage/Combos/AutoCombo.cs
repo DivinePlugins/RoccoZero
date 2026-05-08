@@ -1,4 +1,4 @@
-﻿namespace Divine.SkywrathMage.Combos;
+namespace Divine.SkywrathMage.Combos;
 
 using System;
 using System.Linq;
@@ -17,7 +17,6 @@ using Divine.Entity.Entities.Abilities.Components;
 using Divine.Menu.EventArgs;
 using Divine.Menu.Items;
 using Divine.SkywrathMage.Menus;
-using Divine.Common.Log;
 
 internal sealed class AutoCombo : BaseTaskHandler
 {
@@ -251,7 +250,7 @@ internal sealed class AutoCombo : BaseTaskHandler
                 && ethereal.CanHit(target))
             {
                 ethereal.UseAbility(target);
-                MultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
+                ZMultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
                 await Task.Delay(ethereal.GetCastDelay(target), token);
                 return;
             }
@@ -267,7 +266,7 @@ internal sealed class AutoCombo : BaseTaskHandler
                 await Task.Delay(shivas.GetCastDelay(), token);
             }
 
-            if (!MultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
+            if (!ZMultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
             {
                 // ConcussiveShot
                 var concussiveShot = Abilities.ConcussiveShot;
@@ -290,7 +289,7 @@ internal sealed class AutoCombo : BaseTaskHandler
                     arcaneBolt.UseAbility(target);
                     var castDelay = arcaneBolt.GetCastDelay(target);
                     var hitTime = arcaneBolt.GetHitTime(target) - (castDelay + 340);
-                    MultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBoltId}", castDelay + 40, hitTime);
+                    ZMultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBoltId}", castDelay + 40, hitTime);
                     await Task.Delay(castDelay, token);
                     return;
                 }
@@ -313,7 +312,7 @@ internal sealed class AutoCombo : BaseTaskHandler
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
     }
 }

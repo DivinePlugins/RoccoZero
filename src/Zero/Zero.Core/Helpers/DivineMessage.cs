@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -229,7 +229,7 @@ namespace Divine.Core.Helpers
             {
                 var p = pos - new Vector2(20, 0);
                 var s = measureText + new Vector2(40, 0);
-                RendererManager.DrawImage(@"others\middle_message.png", new RectangleF(p.X, p.Y, s.X, s.Y));
+                RendererManager.DrawImage(@"others\middle_message.png", new Rect(p.X, p.Y, s.X, s.Y));
             }
 
             var extraPos = Vector2.Zero;

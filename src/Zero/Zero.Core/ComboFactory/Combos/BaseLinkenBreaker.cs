@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -9,7 +9,6 @@ using Divine.Core.Entities;
 using Divine.Core.Entities.Abilities;
 using Divine.Core.Extensions;
 using Divine.Entity.Entities.Abilities.Components;
-using Divine.Common.Log;
 
 namespace Divine.Core.ComboFactory.Combos
 {
@@ -85,7 +84,7 @@ namespace Divine.Core.ComboFactory.Combos
             }
             catch (Exception e)
             {
-                LogManager.Error(e);
+                Logger.LogError(e);
             }
         }
     }

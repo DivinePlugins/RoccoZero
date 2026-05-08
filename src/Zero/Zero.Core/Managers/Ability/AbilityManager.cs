@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Divine.Core.Entities;
+using Divine.Core.Helpers;
 using Divine.Core.Managers.Ability.Delegates;
 using Divine.Core.Managers.Unit;
 using Divine.Entity;
@@ -15,7 +16,6 @@ using Divine.Entity.Entities.EventArgs;
 using Divine.Entity.Entities.Exceptions;
 using Divine.Helpers;
 using Divine.Update;
-using Divine.Common.Log;
 
 using DivineAbility = Entity.Entities.Abilities.Ability;
 
@@ -57,7 +57,7 @@ public sealed class AbilityManager
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
 
         UnitManager<CUnit>.UnitAdded += UnitAdded;
@@ -82,7 +82,7 @@ public sealed class AbilityManager
                 }
                 catch (Exception e)
                 {
-                    LogManager.Error(e);
+                    Logger.LogError(e);
                 }
             }
 
@@ -111,7 +111,7 @@ public sealed class AbilityManager
                 }
                 catch (Exception e)
                 {
-                    LogManager.Error(e);
+                    Logger.LogError(e);
                 }
             }
 
@@ -147,7 +147,7 @@ public sealed class AbilityManager
         }
     }
 
-    private static readonly Sleeper sleeper = new Sleeper();
+    private static readonly ZSleeper sleeper = new ZSleeper();
 
     internal void AbilityAdded(DivineAbility ability)
     {

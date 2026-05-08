@@ -5,7 +5,6 @@ using System.Threading;
     using System.Threading.Tasks;
 
     using Divine.Update;
-    using Divine.Common.Log;
 
     public class TaskHandler
     {
@@ -111,7 +110,7 @@ using System.Threading;
                     }
                     catch (Exception e)
                     {
-                        LogManager.Error(e);
+                        Logger.LogError(e);
                     }
                     finally
                     {

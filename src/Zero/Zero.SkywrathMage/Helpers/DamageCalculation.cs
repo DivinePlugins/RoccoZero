@@ -1,4 +1,4 @@
-﻿using Divine.Core.ComboFactory.Helpers;
+using Divine.Core.ComboFactory.Helpers;
 using Divine.Core.ComboFactory.Menus;
 using Divine.Core.Entities;
 using Divine.Core.Entities.Abilities.Spells.SkywrathMage;
@@ -95,17 +95,17 @@ namespace Divine.SkywrathMage.Helpers
         {
             if (ability == Abilities.Ethereal)
             {
-                return MultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_{ability.Name}");
+                return ZMultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_{ability.Name}");
             }
 
             if (ability == Abilities.ConcussiveShot)
             {
-                return MultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_{ability.Name}");
+                return ZMultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_{ability.Name}");
             }
 
             if (ability == Abilities.ArcaneBolt)
             {
-                return MultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_{ability.Name}");
+                return ZMultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_{ability.Name}");
             }
 
             return false;

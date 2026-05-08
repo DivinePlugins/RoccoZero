@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Divine.Core.Helpers
 {
-    public sealed class MultiSleeper
+    public sealed class ZMultiSleeper
     {
-        private readonly Dictionary<uint, Sleeper> sleepers = new Dictionary<uint, Sleeper>();
+        private readonly Dictionary<uint, ZSleeper> sleepers = new Dictionary<uint, ZSleeper>();
 
-        public Sleeper this[uint handle]
+        public ZSleeper this[uint handle]
         {
             get
             {
                 if (!sleepers.TryGetValue(handle, out var sleeper))
                 {
-                    sleeper = new Sleeper();
+                    sleeper = new ZSleeper();
                     sleepers[handle] = sleeper;
                 }
 
@@ -41,15 +41,15 @@ namespace Divine.Core.Helpers
         }
     }
 
-    public static class MultiSleeper<T>
+    public static class ZMultiSleeper<T>
     {
-        private static readonly Dictionary<T, Sleeper> sleepers = new Dictionary<T, Sleeper>();
+        private static readonly Dictionary<T, ZSleeper> sleepers = new Dictionary<T, ZSleeper>();
 
-        public static Sleeper Sleeper(T handle)
+        public static ZSleeper Sleeper(T handle)
         {
             if (!sleepers.TryGetValue(handle, out var sleeper))
             {
-                sleeper = new Sleeper();
+                sleeper = new ZSleeper();
                 sleepers[handle] = sleeper;
             }
 

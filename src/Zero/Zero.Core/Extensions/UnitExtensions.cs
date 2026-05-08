@@ -1,4 +1,4 @@
-﻿namespace Divine.Core.Extensions;
+namespace Divine.Core.Extensions;
 
 using System;
 using System.Collections.Generic;
@@ -473,7 +473,7 @@ public static class UnitExtensions
             clusterPosition += heroPosition.Extend(position, dangerRange);
         }
 
-        if (clusterPosition.IsZero)
+        if (clusterPosition.IsDefault)
         {
             return Vector3.Zero;
         }

@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 
 using Divine.Game;
 
 namespace Divine.Core.Helpers
 {
-    public sealed class Sleeper
+    public sealed class ZSleeper
     {
         private bool isSleeping;
 

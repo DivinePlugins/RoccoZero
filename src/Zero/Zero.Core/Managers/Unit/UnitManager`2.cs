@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using Divine.Core.Entities;
 using Divine.Core.Managers.Unit.Delegates;
-using Divine.Common.Log;
 
 namespace Divine.Core.Managers.Unit
 {
@@ -21,7 +16,7 @@ namespace Divine.Core.Managers.Unit
             UnitManager<TUnit>.UnitAdded += OnAdded;
             UnitManager<TUnit>.UnitRemoved += OnRemoved;
 
-            LogManager.Info($"================ Activate UnitManager<{typeof(TUnit).Name}, {typeof(T).Name}>");
+            Logger.LogInformation($"================ Activate UnitManager<{typeof(TUnit).Name}, {typeof(T).Name}>");
         }
 
         private static UnitEventHandler<TUnit> unitAdded;
@@ -38,7 +33,7 @@ namespace Divine.Core.Managers.Unit
                     }
                     catch (Exception e)
                     {
-                        LogManager.Error(e);
+                        Logger.LogError(e);
                     }
                 }
 

@@ -1,4 +1,4 @@
-﻿using Divine.Core.Helpers;
+using Divine.Core.Helpers;
 using Divine.Order;
 using Divine.Order.EventArgs;
 using Divine.Order.Orders.Components;
@@ -47,7 +47,7 @@ namespace Divine.SkywrathMage.Features
 
                     var castDelay = concussiveShot.GetCastDelay();
                     var hitTime = concussiveShot.GetHitTime(targetHit) - (castDelay + 150);
-                    MultiSleeper<string>.DelaySleep($"IsHitTime_{targetHit.Name}_{concussiveShot.Name}", castDelay + 50, hitTime);
+                    ZMultiSleeper<string>.DelaySleep($"IsHitTime_{targetHit.Name}_{concussiveShot.Name}", castDelay + 50, hitTime);
                 }
             }
         }

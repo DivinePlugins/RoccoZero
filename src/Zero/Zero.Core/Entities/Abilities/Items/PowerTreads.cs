@@ -1,9 +1,10 @@
-﻿using Divine.Core.Entities.Abilities.Items.Bases;
+using Divine.Core.Entities.Abilities.Items.Bases;
 using Divine.Core.Entities.Metadata;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Entity.Entities.Abilities.Items;
-using Divine.Entity.Entities.Units.Heroes.Components;
 using Divine.Game;
+
+using Attribute = Divine.Entity.Entities.Units.Heroes.Components.Attribute;
 
 namespace Divine.Core.Entities.Abilities.Items
 {

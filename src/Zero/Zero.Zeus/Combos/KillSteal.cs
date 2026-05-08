@@ -1,7 +1,3 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-
 using Divine.Core.ComboFactory.Combos;
 using Divine.Core.ComboFactory.Menus.Combo;
 using Divine.Core.Extensions;
@@ -9,9 +5,7 @@ using Divine.Core.Helpers;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Extensions;
 using Divine.GameConsole;
-using Divine.Numerics;
 using Divine.Update;
-using Divine.Common.Log;
 using Divine.Zeus.Menus;
 
 namespace Divine.Zeus.Combos
@@ -80,7 +74,7 @@ namespace Divine.Zeus.Combos
                     && ethereal.CanHit(target))
                 {
                     ethereal.UseAbility(target);
-                    MultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
+                    ZMultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
                     await Task.Delay(ethereal.GetCastDelay(target), token);
                     return;
                 }
@@ -96,14 +90,14 @@ namespace Divine.Zeus.Combos
                     await Task.Delay(shivas.GetCastDelay(), token);
                 }
 
-                if (!MultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
+                if (!ZMultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
                 {
                     // LightningBolt
                     var lightningBolt = Abilities.LightningBolt;
                     if (KillStealMenu.AbilitiesSelection[lightningBolt.Id] && lightningBolt.CanBeCasted)
                     {
                         var position = lightningBolt.LightningBoltPrediction(target, false);
-                        if (!position.IsZero)
+                        if (!position.IsDefault)
                         {
                             lightningBolt.UseAbility(position);
                             await Task.Delay(lightningBolt.GetCastDelay(position), token);
@@ -162,11 +156,11 @@ namespace Divine.Zeus.Combos
             }
             catch (Exception e)
             {
-                LogManager.Error(e);
+                Logger.LogError(e);
             }
         }
 
-        private readonly Sleeper cameraSleeper = new Sleeper();
+        private readonly ZSleeper cameraSleeper = new ZSleeper();
 
         private void MoveCamera(Vector3 position)
         {

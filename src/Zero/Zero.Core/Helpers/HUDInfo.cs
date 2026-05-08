@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 using Divine.Core.Entities;
@@ -420,7 +420,7 @@ namespace Divine.Core.Helpers
         {
             var pos = unit.Position + new Vector3(0, 0, unit.HealthBarOffset);
             var screenPos = RendererManager.WorldToScreen(pos, true);
-            if (screenPos.IsZero)
+            if (screenPos.IsDefault)
             {
                 return Vector2.Zero;
             }

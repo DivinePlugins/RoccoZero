@@ -1,7 +1,3 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-
 using Divine.Core.ComboFactory.Combos;
 using Divine.Core.ComboFactory.Menus;
 using Divine.Core.ComboFactory.Menus.Combo;
@@ -14,7 +10,6 @@ using Divine.Extensions;
 using Divine.Game;
 using Divine.SkywrathMage.Menus;
 using Divine.SkywrathMage.Menus.Combo;
-using Divine.Common.Log;
 
 namespace Divine.SkywrathMage.Combos
 {
@@ -257,7 +252,7 @@ namespace Divine.SkywrathMage.Combos
                             && ethereal.CanHit(target))
                         {
                             ethereal.UseAbility(target);
-                            MultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
+                            ZMultiSleeper<string>.Sleep($"IsHitTime_{target.Name}_{ethereal.Name}", ethereal.GetHitTime(target));
                             await Task.Delay(ethereal.GetCastDelay(target), token);
                             return;
                         }
@@ -273,7 +268,7 @@ namespace Divine.SkywrathMage.Combos
                             await Task.Delay(shivas.GetCastDelay(), token);
                         }
 
-                        if (!MultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
+                        if (!ZMultiSleeper<string>.Sleeping($"IsHitTime_{target.Name}_item_ethereal_blade") || targetModifiers.IsEthereal)
                         {
                             // ConcussiveShot
                             var concussiveShot = Abilities.ConcussiveShot;
@@ -295,7 +290,7 @@ namespace Divine.SkywrathMage.Combos
                                 arcaneBolt.UseAbility(target);
                                 var castDelay = arcaneBolt.GetCastDelay(target);
                                 var hitTime = arcaneBolt.GetHitTime(target) - (castDelay + 350);
-                                MultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBolt.Name}", castDelay + 50, hitTime);
+                                ZMultiSleeper<string>.DelaySleep($"IsHitTime_{target.Name}_{arcaneBolt.Name}", castDelay + 50, hitTime);
                                 await Task.Delay(castDelay, token);
                                 return;
                             }
@@ -352,7 +347,7 @@ namespace Divine.SkywrathMage.Combos
             }
             catch (Exception e)
             {
-                LogManager.Error(e);
+                Logger.LogError(e);
             }
         }
 

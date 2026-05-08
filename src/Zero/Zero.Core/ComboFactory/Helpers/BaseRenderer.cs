@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Divine.Core.ComboFactory.Commons;
 using Divine.Core.ComboFactory.Menus;
@@ -227,7 +227,7 @@ namespace Divine.Core.ComboFactory.Helpers
                     var hpBarSizeY = HUDInfo.HpBarSizeY / 2.3f;
                     var hpBarPos = hpBarPosition + new Vector2(0, hpBarSizeY + 1.8f);
 
-                    if (hpBarPosition.IsZero)
+                    if (hpBarPosition.IsDefault)
                     {
                         continue;
                     }
