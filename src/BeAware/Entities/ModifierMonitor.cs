@@ -1,4 +1,4 @@
-﻿namespace BeAware.Entities;
+namespace BeAware.Entities;
 
 using System;
 
@@ -7,7 +7,6 @@ using BeAware.Helpers;
 using BeAware.MenuManager.PartialMapHack;
 using BeAware.ShowMeMore.MoreInformation;
 
-using Divine.Common.Log;
 using Divine.Entity;
 using Divine.Entity.Entities.Units;
 using Divine.Entity.Entities.Units.Heroes;
@@ -17,7 +16,6 @@ using Divine.Helpers;
 using Divine.Modifier;
 using Divine.Modifier.EventArgs;
 using Divine.Modifier.Modifiers;
-using Divine.Numerics;
 
 internal sealed class ModifierMonitor
 {
@@ -34,8 +32,6 @@ internal sealed class ModifierMonitor
     private readonly BloodseekerRupture BloodseekerRupture;
 
     private readonly Hero LocalHero = EntityManager.LocalHero;
-
-    private static readonly Log Log = LogManager.GetCurrentClassLogger();
 
     public ModifierMonitor(Common common)
     {
@@ -129,7 +125,7 @@ internal sealed class ModifierMonitor
         }
         catch (Exception ex)
         {
-            Log.Error(ex);
+            Logger.LogError(ex);
         }
     }
 
@@ -161,7 +157,7 @@ internal sealed class ModifierMonitor
         }
         catch (Exception e)
         {
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 }

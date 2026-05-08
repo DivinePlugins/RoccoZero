@@ -1,4 +1,4 @@
-﻿namespace BeAware.ShowMeMore;
+namespace BeAware.ShowMeMore;
 
 using System;
 using System.Linq;
@@ -17,6 +17,8 @@ using Divine.Helpers;
 using Divine.Numerics;
 using Divine.Renderer;
 using Divine.Update;
+
+#pragma warning disable CS061
 
 internal class Additional
 {
@@ -48,6 +50,8 @@ internal class Additional
 
     private string AegisTextTimer { get; set; } = string.Empty;
 
+    private readonly float Scale = RendererManager.Scale * 0.5f;
+
     public Additional(Common common)
     {
         CheckRuneMenu = common.MenuConfig.ShowMeMoreMenu.CheckRuneMenu;
@@ -60,7 +64,7 @@ internal class Additional
         RendererManager.LoadImageFromAssembly("BeAware.Resources.Textures.roshan_alive.png");
         RendererManager.LoadImageFromAssembly("BeAware.Resources.Textures.roshan_dead.png");
 
-        RoshanPanelPosition = HUDInfo.GetCustomTopPanelPosition(1, Team.Radiant) - (new Vector2(480, -4) * RendererManager.Scaling);
+        RoshanPanelPosition = HUDInfo.GetCustomTopPanelPosition(1, Team.Radiant) - (new Vector2(480, -4) * Scale);
 
         GameManager.GameEvent += OnGameEvent;
         UpdateManager.CreateIngameUpdate(1000, OnTimeEvent);
@@ -81,22 +85,22 @@ internal class Additional
             return;
         }
 
-        var textureSize = new Vector2(320, 72) * RendererManager.Scaling;
+        var textureSize = new Vector2(320, 72) * Scale;
 
         if (RoshanDead)
         {
-            RendererManager.DrawImage("BeAware.Resources.Textures.roshan_dead.png", new RectangleF(RoshanPanelPosition.X, RoshanPanelPosition.Y, textureSize.X, textureSize.Y));
-            RendererManager.DrawText(RoshanTextTimer, RoshanPanelPosition + (new Vector2(86, 12) * RendererManager.Scaling), Color.Red, 40 * RendererManager.Scaling);
+            RendererManager.DrawImage("BeAware.Resources.Textures.roshan_dead.png", new Rect(RoshanPanelPosition.X, RoshanPanelPosition.Y, textureSize.X, textureSize.Y));
+            RendererManager.DrawText(RoshanTextTimer, RoshanPanelPosition + (new Vector2(86, 12) * Scale), Color.Red, 40 * Scale);
 
             if (AegisWasFound && RoshanMenu.AegisItem)
             {
-                RendererManager.DrawText(AegisTextTimer, RoshanPanelPosition + (new Vector2(148, 44) * RendererManager.Scaling), Color.Aqua, 28 * RendererManager.Scaling);
+                RendererManager.DrawText(AegisTextTimer, RoshanPanelPosition + (new Vector2(148, 44) * Scale), Color.Aqua, 28 * Scale);
             }
         }
         else
         {
-            RendererManager.DrawImage("BeAware.Resources.Textures.roshan_alive.png", new RectangleF(RoshanPanelPosition.X, RoshanPanelPosition.Y, textureSize.X, textureSize.Y));
-            RendererManager.DrawText("Roshan Alive", RoshanPanelPosition + (new Vector2(86, 12) * RendererManager.Scaling), Color.Aqua, 40 * RendererManager.Scaling);
+            RendererManager.DrawImage("BeAware.Resources.Textures.roshan_alive.png", new Rect(RoshanPanelPosition.X, RoshanPanelPosition.Y, textureSize.X, textureSize.Y));
+            RendererManager.DrawText("Roshan Alive", RoshanPanelPosition + (new Vector2(86, 12) * Scale), Color.Aqua, 40 * Scale);
         }
     }
 

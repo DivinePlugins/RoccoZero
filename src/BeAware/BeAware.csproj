@@ -1,56 +1,8 @@
-﻿<Project Sdk="Divine.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Sounds\check_rune_en.wav" />
-    <EmbeddedResource Include="Resources\Sounds\check_rune_ru.wav" />
-    <EmbeddedResource Include="Resources\Sounds\default.wav" />
-    <EmbeddedResource Include="Resources\Sounds\item_smoke_of_deceit.wav" />
-    <EmbeddedResource Include="Resources\Sounds\furion_teleportation_en.wav" />
-    <EmbeddedResource Include="Resources\Textures\divinebeaware.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\0.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\1.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\10.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\2.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\3.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\4.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\5.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\6.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\7.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\8.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\9.png" />
-    <EmbeddedResource Include="Resources\Textures\HeroColors\red.png" />
-    <EmbeddedResource Include="Resources\Textures\hero_visible_left.png" />
-    <EmbeddedResource Include="Resources\Textures\hero_visible_right.png" />
-    <EmbeddedResource Include="Resources\Textures\item_panel.png" />
-    <EmbeddedResource Include="Resources\Textures\msg0_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg0_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\msg1_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg1_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\msg2_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg2_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\msg3_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg3_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\msg4_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg4_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\msg5_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg5_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\msg6_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg6_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\msg7_en.png" />
-    <EmbeddedResource Include="Resources\Textures\msg7_ru.png" />
-    <EmbeddedResource Include="Resources\Textures\roshan_alive.png" />
-    <EmbeddedResource Include="Resources\Textures\roshan_dead.png" />
-    <EmbeddedResource Include="Resources\Textures\spell_phase.png" />
-    <EmbeddedResource Include="Resources\Textures\topbar_health.png" />
-    <EmbeddedResource Include="Resources\Textures\topbar_mana.png" />
-    <EmbeddedResource Include="Resources\Textures\topbar_ulti.png" />
-    <EmbeddedResource Include="Resources\Textures\ui_manabar.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Vortice.Win32.Media.Audio.XAudio2">
-      <HintPath>C:\Program Files\Divine\References\Vortice.Win32.Media.Audio.XAudio2.dll</HintPath>
-    </Reference>
+    <EmbeddedResource Include="Resources\Sounds\**\*" />
+    <EmbeddedResource Include="Resources\Textures\**\*" />
   </ItemGroup>
 
 </Project>

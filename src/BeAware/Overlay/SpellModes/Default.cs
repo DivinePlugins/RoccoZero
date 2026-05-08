@@ -1,4 +1,4 @@
-﻿namespace BeAware.Overlay.SpellModes;
+namespace BeAware.Overlay.SpellModes;
 
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ internal sealed class Default : BaseSpellMode
                 continue;
             }
 
-            var rect = new RectangleF(position.X, position.Y, extraSize.X, extraSize.Y);
+            var rect = new Rect(position.X, position.Y, extraSize.X, extraSize.Y);
             RendererManager.DrawImage(spell.Name, rect, ImageType.Ability, true);
 
             if (spell.IsInAbilityPhase)
@@ -37,7 +37,7 @@ internal sealed class Default : BaseSpellMode
             if (cooldown > 0 || !enoughMana || level <= 0)
             {
                 var color = level <= 0 ? new Color(10, 10, 10, 210) : (enoughMana ? new Color(40, 40, 40, 180) : new Color(25, 25, 130, 190));
-                RendererManager.DrawFilledRectangle(new RectangleF(position.X + 1, position.Y, extraSize.X - 1, extraSize.Y), color, color, 0);
+                RendererManager.DrawFilledRectangle(new Rect(position.X + 1, position.Y, extraSize.X - 1, extraSize.Y), color, color, 0);
             }
 
             var notinvospell = heroId != HeroId.npc_dota_hero_invoker || (spell.AbilitySlot != AbilitySlot.Slot4 && spell.AbilitySlot != AbilitySlot.Slot5);
@@ -46,7 +46,7 @@ internal sealed class Default : BaseSpellMode
                 var levelText = level.ToString();
                 var textSize = RendererManager.MeasureText(levelText, extraSize.X / 2);
 
-                RendererManager.DrawFilledRectangle(new RectangleF(position.X + 1, position.Y, textSize.X + 2, textSize.Y + 1), Color.Zero, new Color(0, 0, 0, 220), 0);
+                RendererManager.DrawFilledRectangle(new Rect(position.X + 1, position.Y, textSize.X + 2, textSize.Y + 1), Color.Zero, new Color(0, 0, 0, 220), 0);
                 RendererManager.DrawText(levelText, new Vector2(position.X + 1, position.Y), new Color(168, 168, 168), extraSize.X / 2);
             }
 
@@ -77,7 +77,7 @@ internal sealed class Default : BaseSpellMode
                 RendererManager.DrawText(manaText, pos, Color.LightBlue, extraSize.X / 2 + 1);
             }
 
-            RendererManager.DrawRectangle(new RectangleF(position.X, position.Y, extraSize.X + 1, extraSize.Y), Color.Black, 1);
+            RendererManager.DrawRectangle(new Rect(position.X, position.Y, extraSize.X + 1, extraSize.Y), Color.Black, 1);
 
             position += new Vector2(extraSize.X, 0);
         }

@@ -1,4 +1,4 @@
-﻿namespace BeAware.Overlay;
+namespace BeAware.Overlay;
 
 using System;
 using System.Collections.Generic;
@@ -151,8 +151,8 @@ internal sealed class EnemyOverlay : Overlay
         var size = new Vector2(HUDInfo.HpBarSizeX - 1, manaBarSizeY + 3);
         var size2 = new Vector2(ManaBarUtils.ManaBarSizeX(manaPerc), manaBarSizeY);
 
-        RendererManager.DrawFilledRectangle(new RectangleF(pos.X, pos.Y, size.X, size.Y), Color.Zero, Color.Black, 0);
-        RendererManager.DrawImage("BeAware.Resources.Textures.ui_manabar.png", new RectangleF(manaBarPosition.X, manaBarPosition.Y, size2.X, size2.Y));
+        RendererManager.DrawFilledRectangle(new Rect(pos.X, pos.Y, size.X, size.Y), Color.Zero, Color.Black, 0);
+        RendererManager.DrawImage("BeAware.Resources.Textures.ui_manabar.png", new Rect(manaBarPosition.X, manaBarPosition.Y, size2.X, size2.Y));
 
         if (ManaBarMenu.ManaBarValueItem)
         {
@@ -188,7 +188,7 @@ internal sealed class EnemyOverlay : Overlay
             var panelSize = new Vector2(sizeX * 7.31f, 5 * (sizeY + 2) + 2);
             PanelMove.Size = new Vector2(panelSize.X + 9, panelSize.Y + 9);
 
-            RendererManager.DrawImage("BeAware.Resources.Textures.item_panel.png", new RectangleF(panelPosition.X - 2, panelPosition.Y, panelSize.X, panelSize.Y));
+            RendererManager.DrawImage("BeAware.Resources.Textures.item_panel.png", new Rect(panelPosition.X - 2, panelPosition.Y, panelSize.X, panelSize.Y));
 
             var itemPosition = panelPosition;
 
@@ -196,7 +196,7 @@ internal sealed class EnemyOverlay : Overlay
             {
                 itemPosition += new Vector2(0, 2);
 
-                RendererManager.DrawImage(hero.Name, new RectangleF(itemPosition.X, itemPosition.Y, sizeX * 1.36f, sizeY), ImageType.Unit, true);
+                RendererManager.DrawImage(hero.Name, new Rect(itemPosition.X, itemPosition.Y, sizeX * 1.36f, sizeY), ImageType.Unit, true);
 
                 var mana = hero.Mana;
                 var maximumMana = hero.MaximumMana;
@@ -208,18 +208,18 @@ internal sealed class EnemyOverlay : Overlay
                 foreach (var item in hero.Inventory.MainItems)
                 {
                     var itemSize = new Vector2(sizeX, sizeY);
-                    RendererManager.DrawImage(item.Name, new RectangleF(itemPosition.X, itemPosition.Y, itemSize.X, itemSize.Y), ImageType.Item, true);
+                    RendererManager.DrawImage(item.Name, new Rect(itemPosition.X, itemPosition.Y, itemSize.X, itemSize.Y), ImageType.Item, true);
 
                     var manaCost = item.ManaCost;
                     var enoughMana = mana >= manaCost;
                     var cooldown = Math.Ceiling(item.CooldownInFog);
                     if (cooldown > 0 || !enoughMana)
                     {
-                        RendererManager.DrawFilledRectangle(new RectangleF(itemPosition.X, itemPosition.Y, itemSize.X, itemSize.Y), Color.Zero, enoughMana ? new Color(40, 40, 40, 180) : new Color(25, 25, 130, 190), 0);
+                        RendererManager.DrawFilledRectangle(new Rect(itemPosition.X, itemPosition.Y, itemSize.X, itemSize.Y), Color.Zero, enoughMana ? new Color(40, 40, 40, 180) : new Color(25, 25, 130, 190), 0);
                     }
                     else
                     {
-                        RendererManager.DrawFilledRectangle(new RectangleF(itemPosition.X, itemPosition.Y, itemSize.X, itemSize.Y), Color.Zero, new Color(0, 0, 0, 100), 0);
+                        RendererManager.DrawFilledRectangle(new Rect(itemPosition.X, itemPosition.Y, itemSize.X, itemSize.Y), Color.Zero, new Color(0, 0, 0, 100), 0);
                     }
 
 
@@ -250,7 +250,7 @@ internal sealed class EnemyOverlay : Overlay
                         var textSize = RendererManager.MeasureText(currentCharges, tSize);
                         var tPos = itemPosition + new Vector2(itemSize.X - textSize.X - 1, itemSize.Y - textSize.Y);
 
-                        RendererManager.DrawFilledRectangle(new RectangleF(tPos.X - 1, tPos.Y, textSize.X + 1, textSize.Y), Color.Zero, new Color(0, 0, 0, 220), 0);
+                        RendererManager.DrawFilledRectangle(new Rect(tPos.X - 1, tPos.Y, textSize.X + 1, textSize.Y), Color.Zero, new Color(0, 0, 0, 220), 0);
                         RendererManager.DrawText(currentCharges, tPos, new Color(168, 168, 168), tSize);
 
                         var secondcharges = item.SecondaryCharges;
@@ -261,7 +261,7 @@ internal sealed class EnemyOverlay : Overlay
                             tSize = itemSize.Y - 1;
                             var textSize1 = RendererManager.MeasureText(currentCharges, tSize);
 
-                            RendererManager.DrawFilledRectangle(new RectangleF(tPos.X - 1, tPos.Y, textSize.X + 1, textSize.Y + 1), Color.Zero, new Color(0, 0, 0, 220), 0);
+                            RendererManager.DrawFilledRectangle(new Rect(tPos.X - 1, tPos.Y, textSize.X + 1, textSize.Y + 1), Color.Zero, new Color(0, 0, 0, 220), 0);
                             RendererManager.DrawText(currentCharges, tPos, new Color(168, 168, 168), tSize);
                         }
                     }
@@ -278,7 +278,7 @@ internal sealed class EnemyOverlay : Overlay
                 var sizeText = RendererManager.MeasureText(text, panelSize.Y);
 
                 RendererManager.DrawText(text, panelPosition - new Vector2((sizeText.X * 0.5f) - (panelSize.X / 2), 0), new Color(255, 255, 255, 50), panelSize.X / 2);
-                RendererManager.DrawRectangle(new RectangleF(panelPosition.X - 5, panelPosition.Y - 5, PanelMove.Size.X, PanelMove.Size.Y), Color.WhiteSmoke, 1);
+                RendererManager.DrawRectangle(new Rect(panelPosition.X - 5, panelPosition.Y - 5, PanelMove.Size.X, PanelMove.Size.Y), Color.WhiteSmoke, 1);
             }
         }
     }
@@ -288,7 +288,7 @@ internal sealed class EnemyOverlay : Overlay
         var tp = hero.Inventory.TownPortalScroll;
         if (tp != null)
         {
-            RendererManager.DrawImage(tp.Name, new RectangleF(position.X, position.Y, size.X, size.Y), ImageType.RoundAbility, true);
+            RendererManager.DrawImage(tp.Name, new Rect(position.X, position.Y, size.X, size.Y), ImageType.RoundAbility, true);
 
             var manaCost = tp.ManaCost;
             var enoughMana = mana >= manaCost;
@@ -296,11 +296,11 @@ internal sealed class EnemyOverlay : Overlay
             var cooldown = Math.Ceiling(tp.Cooldown);
             if (cooldown > 0 || !enoughMana)
             {
-                RendererManager.DrawFilledRectangle(new RectangleF(position.X, position.Y, size.X, size.Y), Color.Zero, enoughMana ? new Color(40, 40, 40, 180) : new Color(25, 25, 130, 190), 0);
+                RendererManager.DrawFilledRectangle(new Rect(position.X, position.Y, size.X, size.Y), Color.Zero, enoughMana ? new Color(40, 40, 40, 180) : new Color(25, 25, 130, 190), 0);
             }
             else
             {
-                RendererManager.DrawFilledRectangle(new RectangleF(position.X, position.Y, size.X, size.Y), Color.Zero, new Color(0, 0, 0, 100), 0);
+                RendererManager.DrawFilledRectangle(new Rect(position.X, position.Y, size.X, size.Y), Color.Zero, new Color(0, 0, 0, 100), 0);
             }
 
             if (cooldown > 0)

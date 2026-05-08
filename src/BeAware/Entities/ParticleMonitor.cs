@@ -1,4 +1,4 @@
-﻿namespace BeAware.Entities;
+namespace BeAware.Entities;
 
 using System;
 using System.Linq;
@@ -13,11 +13,9 @@ using Divine.Entity.Entities;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Entity.Entities.Units.Heroes;
 using Divine.Extensions;
-using Divine.Numerics;
 using Divine.Particle;
 using Divine.Particle.EventArgs;
 using Divine.Update;
-using Divine.Common.Log;
 
 internal sealed class ParticleMonitor
 {
@@ -36,8 +34,6 @@ internal sealed class ParticleMonitor
     private readonly MiranaArrow MiranaArrow;
 
     private readonly Hero LocalHero = EntityManager.LocalHero;
-
-    private readonly static Log Log = LogManager.GetCurrentClassLogger();
 
     private Hero blinkHeroEnd;
 
@@ -361,7 +357,7 @@ internal sealed class ParticleMonitor
 
                         var particleColor = particle.GetControlPoint(2);
                         var position = particle.GetControlPoint(0);
-                        if (particleColor.IsZero || position.IsZero)
+                        if (particleColor.IsDefault || position.IsDefault)
                         {
                             return;
                         }
@@ -396,7 +392,7 @@ internal sealed class ParticleMonitor
         }
         catch (Exception ex)
         {
-            Log.Error(ex);
+            Logger.LogError(ex);
         }
     }
 
@@ -413,7 +409,7 @@ internal sealed class ParticleMonitor
         }
         catch (Exception e)
         {
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 
@@ -421,7 +417,7 @@ internal sealed class ParticleMonitor
     {
         try
         {
-            if (position.IsZero)
+            if (position.IsDefault)
             {
                 return;
             }
@@ -451,7 +447,7 @@ internal sealed class ParticleMonitor
         }
         catch (Exception e)
         {
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 
@@ -459,7 +455,7 @@ internal sealed class ParticleMonitor
     {
         try
         {
-            if (position.IsZero)
+            if (position.IsDefault)
             {
                 return;
             }
@@ -483,7 +479,7 @@ internal sealed class ParticleMonitor
         }
         catch (Exception e)
         {
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 
@@ -508,7 +504,7 @@ internal sealed class ParticleMonitor
         }
         catch (Exception e)
         {
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 }

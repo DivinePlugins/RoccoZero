@@ -1,4 +1,4 @@
-﻿namespace BeAware.Helpers;
+namespace BeAware.Helpers;
 
 using System;
 using System.Collections.Generic;
@@ -167,8 +167,8 @@ public class SideMessage
                 //Drawing.DrawRect(message.MessagePosition, message.Size, message.BackgroundColor);
                 //Drawing.DrawRect(message.MessagePosition, message.Size, message.BackgroundOutlineColor, true);
 
-                RendererManager.DrawFilledRectangle(new RectangleF(message.MessagePosition.X, message.MessagePosition.Y, message.Size.X, message.Size.Y), message.BackgroundColor, message.BackgroundColor, 0);
-                RendererManager.DrawRectangle(new RectangleF(message.MessagePosition.X, message.MessagePosition.Y, message.Size.X, message.Size.Y), message.BackgroundOutlineColor, 1);
+                RendererManager.DrawFilledRectangle(new Rect(message.MessagePosition.X, message.MessagePosition.Y, message.Size.X, message.Size.Y), message.BackgroundColor, message.BackgroundColor, 0);
+                RendererManager.DrawRectangle(new Rect(message.MessagePosition.X, message.MessagePosition.Y, message.Size.X, message.Size.Y), message.BackgroundOutlineColor, 1);
 
                 foreach (var component in message.components)
                 {
@@ -273,7 +273,7 @@ public class SideMessage
         public void Draw()
         {
             var position = Parent.MessagePosition + this.Position;
-            RendererManager.DrawImage(TextureKey, new RectangleF(position.X, position.Y, Size.X, Size.Y), ImageType);
+            RendererManager.DrawImage(TextureKey, new Rect(position.X, position.Y, Size.X, Size.Y), ImageType);
         }
     }
 }

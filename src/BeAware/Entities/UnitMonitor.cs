@@ -1,4 +1,4 @@
-﻿namespace BeAware.Entities;
+namespace BeAware.Entities;
 
 using System;
 using System.Linq;
@@ -8,7 +8,6 @@ using BeAware.Helpers;
 using BeAware.MenuManager.PartialMapHack;
 using BeAware.ShowMeMore.MoreInformation;
 
-using Divine.Common.Log;
 using Divine.Entity;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Entity.Entities.Components;
@@ -17,7 +16,6 @@ using Divine.Entity.Entities.Units.Heroes;
 using Divine.Entity.Entities.Units.Heroes.Components;
 using Divine.Entity.EventArgs;
 using Divine.Extensions;
-using Divine.Numerics;
 
 internal sealed class UnitMonitor
 {
@@ -36,8 +34,6 @@ internal sealed class UnitMonitor
     //private readonly IllusionShow IllusionShow;
 
     private readonly Verification Verification;
-
-    private static readonly Log Log = LogManager.GetCurrentClassLogger();
 
     public UnitMonitor(Common common)
     {
@@ -142,7 +138,7 @@ internal sealed class UnitMonitor
         }
         catch (Exception ex)
         {
-            Log.Error(ex);
+            Logger.LogError(ex);
         }
     }
 
@@ -169,7 +165,7 @@ internal sealed class UnitMonitor
         }
         catch (Exception e)
         {
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 }

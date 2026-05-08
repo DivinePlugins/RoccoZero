@@ -1,4 +1,4 @@
-﻿namespace BeAware.ShowMeMore.MoreInformation;
+namespace BeAware.ShowMeMore.MoreInformation;
 
 using System;
 using System.Linq;
@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using BeAware.MenuManager.ShowMeMore;
 using BeAware.MenuManager.ShowMeMore.MoreInformation;
 
-using Divine.Common.Log;
 using Divine.Entity;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Entity.Entities.Units;
@@ -15,7 +14,6 @@ using Divine.Entity.Entities.Units.Heroes;
 using Divine.Entity.Entities.Units.Heroes.Components;
 using Divine.Extensions;
 using Divine.Game;
-using Divine.Helpers;
 using Divine.Modifier.Modifiers;
 using Divine.Numerics;
 using Divine.Particle;
@@ -59,7 +57,7 @@ internal sealed class SpiritBreakerCharge : Base
             (int)SpiritBreakerChargeMenu.AlphaItem.Value);
 
             var screenSize = RendererManager.ScreenSize;
-            RendererManager.DrawFilledRectangle(new RectangleF(0, 0, screenSize.X, screenSize.Y), Color.Zero, color, 0);
+            RendererManager.DrawFilledRectangle(new Rect(0, 0, screenSize.X, screenSize.Y), Color.Zero, color, 0);
         }
 
         if (OnMinimap)
@@ -67,7 +65,7 @@ internal sealed class SpiritBreakerCharge : Base
             var startPos = startChargePosition.WorldToMinimap();
             var endPos = endChargePosition.WorldToMinimap();
             RendererManager.DrawLine(startPos, endPos, Color.WhiteSmoke, 1);
-            RendererManager.DrawImage(@"mini_heroes\npc_dota_hero_spirit_breaker.png", new RectangleF(startPos.X - 11, startPos.Y - 13, 24, 24));
+            RendererManager.DrawImage(@"mini_heroes\npc_dota_hero_spirit_breaker.png", new Rect(startPos.X - 11, startPos.Y - 13, 24, 24));
         }
     }
 
@@ -165,7 +163,7 @@ internal sealed class SpiritBreakerCharge : Base
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
     }
 

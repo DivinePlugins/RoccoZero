@@ -1,4 +1,4 @@
-﻿namespace BeAware.Helpers;
+namespace BeAware.Helpers;
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,6 @@ using BeAware.Data;
 using BeAware.MenuManager.PartialMapHack;
 using BeAware.MenuManager.ShowMeMore;
 
-using Divine.Common.Log;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Entity.Entities.Units.Heroes.Components;
 using Divine.Extensions;
@@ -34,8 +33,6 @@ internal class Verification
     private int IconSize { get; }
 
     private static readonly Random Random = new();
-
-    private static readonly Log Log = LogManager.GetCurrentClassLogger();
 
     public Verification(Common common)
     {
@@ -129,7 +126,7 @@ internal class Verification
         catch (Exception e)
         {
             DrawingData.Clear();
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 
@@ -168,7 +165,7 @@ internal class Verification
         catch (Exception e)
         {
             DrawingData.Clear();
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 
@@ -232,7 +229,7 @@ internal class Verification
         catch (Exception e)
         {
             DrawingData.Clear();
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 
@@ -271,7 +268,7 @@ internal class Verification
         catch (Exception e)
         {
             DrawingData.Clear();
-            Log.Error(e);
+            Logger.LogError(e);
         }
     }
 
@@ -284,13 +281,13 @@ internal class Verification
 
         foreach (var data in DrawingData.ToArray().OrderBy(x => x.GetHeroTexturName != "npc_dota_hero_default"))
         {
-            if (data.GetWorldPos.IsZero)
+            if (data.GetWorldPos.IsDefault)
             {
                 continue;
             }
 
             var pos = data.GetMinimapPos;
-            if (pos.IsZero)
+            if (pos.IsDefault)
             {
                 continue;
             }
@@ -301,39 +298,39 @@ internal class Verification
 
             if (data.GetIsEnd)
             {
-                RendererManager.DrawImage ( "BeAware.Resources.Textures.HeroColors.red.png", new RectangleF ( (pos.X - 4) - HeroIconExtraPos.X * scale, (pos.Y - 4) - HeroIconExtraPos.Y * scale, 26f * scale, 26f * scale ), 1 );
+                RendererManager.DrawImage ( "BeAware.Resources.Textures.HeroColors.red.png", new Rect( (pos.X - 4) - HeroIconExtraPos.X * scale, (pos.Y - 4) - HeroIconExtraPos.Y * scale, 26f * scale, 26f * scale ), 1 );
             }
 
             if (heroTexturName != "npc_dota_hero_default")
             {
-                RendererManager.DrawImage ( $"BeAware.Resources.Textures.HeroColors.{playerId}.png", new RectangleF ( (pos.X - 2.5f) - HeroIconExtraPos.X * scale, (pos.Y - 2.5f) - HeroIconExtraPos.Y * scale, 23 * scale, 23 * scale ), 1 );
-                RendererManager.DrawImage ( heroTexturName, new RectangleF ( pos.X - HeroIconExtraPos.X * scale + 2.25f * scale, pos.Y - HeroIconExtraPos.Y * scale + 2.25f * scale, 18 * scale, 18 * scale ), ImageType.MiniUnit, true );
+                RendererManager.DrawImage ( $"BeAware.Resources.Textures.HeroColors.{playerId}.png", new Rect( (pos.X - 2.5f) - HeroIconExtraPos.X * scale, (pos.Y - 2.5f) - HeroIconExtraPos.Y * scale, 23 * scale, 23 * scale ), 1 );
+                RendererManager.DrawImage ( heroTexturName, new Rect ( pos.X - HeroIconExtraPos.X * scale + 2.25f * scale, pos.Y - HeroIconExtraPos.Y * scale + 2.25f * scale, 18 * scale, 18 * scale ), ImageType.MiniUnit, true );
             }
             else
             {
-                RendererManager.DrawImage ( $"BeAware.Resources.Textures.HeroColors.{playerId}.png", new RectangleF ( (pos.X - 2.5f) - HeroIconExtraPos.X * scale, (pos.Y - 2.5f) - HeroIconExtraPos.Y * scale, 21.5f * scale, 21.5f * scale ), 1 );
+                RendererManager.DrawImage ( $"BeAware.Resources.Textures.HeroColors.{playerId}.png", new Rect( (pos.X - 2.5f) - HeroIconExtraPos.X * scale, (pos.Y - 2.5f) - HeroIconExtraPos.Y * scale, 21.5f * scale, 21.5f * scale ), 1 );
             }
         }
 
         foreach (var data in DrawingData.ToArray())
         {
             var worldPosition = data.GetWorldPos;
-            if (worldPosition.IsZero)
+            if (worldPosition.IsDefault)
             {
                 continue;
             }
 
             var pos = RendererManager.WorldToScreen(worldPosition);
-            if (pos.IsZero)
+            if (pos.IsDefault)
             {
                 continue;
             }
 
-            var rect = new RectangleF(pos.X + 25, pos.Y - 20, 50, 50);
-            RendererManager.DrawImage(data.GetHeroTexturName, new RectangleF(pos.X + 25, pos.Y - 20, 50, 50), ImageType.RoundUnit, true);
+            var rect = new Rect(pos.X + 25, pos.Y - 20, 50, 50);
+            RendererManager.DrawImage(data.GetHeroTexturName, new Rect(pos.X + 25, pos.Y - 20, 50, 50), ImageType.RoundUnit, true);
             RendererManager.DrawCircle(rect.Center, 25, Color.LimeGreen, 4);
 
-            rect = new RectangleF(pos.X + 34, pos.Y + 20, 35, 35);
+            rect = new Rect(pos.X + 34, pos.Y + 20, 35, 35);
             RendererManager.DrawImage(data.GetAbilityTexturName, rect, ImageType.RoundAbility, true);
             RendererManager.DrawCircle(rect.Center, 20, Color.LimeGreen, 4);
         }

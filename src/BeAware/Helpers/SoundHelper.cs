@@ -1,11 +1,9 @@
-﻿namespace BeAware.Helpers;
+namespace BeAware.Helpers;
 
 using System;
 using System.Runtime.CompilerServices;
 
 using BeAware.MenuManager;
-
-using Divine.Common.Log;
 
 internal sealed class SoundHelper
 {
@@ -53,7 +51,7 @@ internal sealed class SoundHelper
         }
         catch (Exception e)
         {
-            LogManager.Error(e);
+            Logger.LogError(e);
         }
     }
 }

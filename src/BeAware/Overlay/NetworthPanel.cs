@@ -1,4 +1,4 @@
-﻿namespace BeAware.Overlay;
+namespace BeAware.Overlay;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -189,7 +189,7 @@ internal class NetworthPanel
         var heroSize = new Vector2(sizeX * 1.36f, sizeY);
         PanelMove.Size = new Vector2(panelSize.X + 9, panelSize.Y + 9);
 
-        RendererManager.DrawImage("BeAware.Resources.Textures.item_panel.png", new RectangleF(panelPosition.X - 2, panelPosition.Y, panelSize.X, panelSize.Y));
+        RendererManager.DrawImage("BeAware.Resources.Textures.item_panel.png", new Rect(panelPosition.X - 2, panelPosition.Y, panelSize.X, panelSize.Y));
 
         var heroes = EntityManager.GetEntities<Hero>().Where(x => !x.IsIllusion);
 
@@ -203,14 +203,14 @@ internal class NetworthPanel
             var netWorth = pair.Value;
 
             heroPosition += new Vector2(0, 2);
-            RendererManager.DrawImage(hero.Name, new RectangleF(heroPosition.X, heroPosition.Y, heroSize.X, heroSize.Y), ImageType.Unit, true);
+            RendererManager.DrawImage(hero.Name, new Rect(heroPosition.X, heroPosition.Y, heroSize.X, heroSize.Y), ImageType.Unit, true);
             heroPosition += new Vector2(sizeX * 1.4f, 0);
 
             var lineMaxSize = panelSize.X - (heroSize.X + 7);
             var lineSize = new Vector2(netWorth * lineMaxSize / maxNetWorthItems, sizeY);
 
             var color = hero.IsAlly(LocalHero) ? new Color(0, 255, 0, 180) : new Color(255, 0, 0, 180);
-            RendererManager.DrawFilledRectangle(new RectangleF(heroPosition.X, heroPosition.Y, lineSize.X, lineSize.Y), Color.Zero, color, 0);
+            RendererManager.DrawFilledRectangle(new Rect(heroPosition.X, heroPosition.Y, lineSize.X, lineSize.Y), Color.Zero, color, 0);
 
             var netWorhText = netWorth.ToString();
             var measureText = RendererManager.MeasureText(netWorhText, sizeY);
@@ -225,7 +225,7 @@ internal class NetworthPanel
             var sizeText = RendererManager.MeasureText(text, panelSize.X);
 
             RendererManager.DrawText(text, panelPosition - new Vector2((sizeText.X * 0.5f) - (panelSize.X / 2), 0), new Color(255, 255, 255, 50), panelSize.X / 2);
-            RendererManager.DrawRectangle(new RectangleF(panelPosition.X - 5, panelPosition.Y - 5, PanelMove.Size.X, PanelMove.Size.Y), Color.WhiteSmoke, 1);
+            RendererManager.DrawRectangle(new Rect(panelPosition.X - 5, panelPosition.Y - 5, PanelMove.Size.X, PanelMove.Size.Y), Color.WhiteSmoke, 1);
         }
     }
 }

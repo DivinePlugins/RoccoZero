@@ -1,4 +1,4 @@
-﻿namespace BeAware.Helpers;
+namespace BeAware.Helpers;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 using Divine.Media;
 
-public static class SoundPlayer
+public static partial class SoundPlayer
 {
     private static readonly Process CurrentProcess = Process.GetCurrentProcess();
 
@@ -30,8 +30,8 @@ public static class SoundPlayer
         });
     }
 
-    [DllImport("User32.dll", SetLastError = true)]
-    private static extern IntPtr GetForegroundWindow();
+    [LibraryImport("User32.dll", SetLastError = true)]
+    private static partial IntPtr GetForegroundWindow();
 
     public static bool Play(string fileName, int volume)
     {

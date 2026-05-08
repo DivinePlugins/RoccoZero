@@ -1,4 +1,4 @@
-﻿namespace BeAware.ShowMeMore.MoreInformation;
+namespace BeAware.ShowMeMore.MoreInformation;
 
 using System.Threading.Tasks;
 
@@ -42,7 +42,7 @@ internal sealed class PhantomAssassinBlur : Base
     private void OnRendererManagerDraw()
     {
         var pos = phantomAssassin.Position.WorldToMinimap();
-        RendererManager.DrawImage(@"mini_heroes\npc_dota_hero_phantom_assassin.png", new RectangleF(pos.X - 11, pos.Y - 13, 24, 24));
+        RendererManager.DrawImage(@"mini_heroes\npc_dota_hero_phantom_assassin.png", new Rect(pos.X - 11, pos.Y - 13, 24, 24));
     }
 
     public override bool Modifier(Unit unit, Modifier modifier)

@@ -1,4 +1,4 @@
-﻿namespace BeAware.ShowMeMore.MoreInformation;
+namespace BeAware.ShowMeMore.MoreInformation;
 
 using System.Threading.Tasks;
 
@@ -41,7 +41,7 @@ internal sealed class BloodseekerRupture : Base
         var color = new Color((int)BloodseekerRuptureMenu.RedItem, (int)BloodseekerRuptureMenu.GreenItem, (int)BloodseekerRuptureMenu.BlueItem, (int)BloodseekerRuptureMenu.AlphaItem);
 
         var screenSize = RendererManager.ScreenSize;
-        RendererManager.DrawFilledRectangle(new RectangleF(0, 0, screenSize.X, screenSize.Y), Color.Zero, color, 0);
+        RendererManager.DrawFilledRectangle(new Rect(0, 0, screenSize.X, screenSize.Y), Color.Zero, color, 0);
     }
 
     public override bool Modifier(Unit unit, Modifier modifier)

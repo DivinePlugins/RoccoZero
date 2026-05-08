@@ -1,4 +1,4 @@
-﻿namespace BeAware.Overlay.SpellModes;
+namespace BeAware.Overlay.SpellModes;
 
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ internal sealed class Low : BaseSpellMode
 
             if (spell.IsInAbilityPhase)
             {
-                RendererManager.DrawImage("BeAware.Resources.Textures.spell_phase.png", new RectangleF(position.X, position.Y, extraSize.X, extraSize.Y));
+                RendererManager.DrawImage("BeAware.Resources.Textures.spell_phase.png", new Rect(position.X, position.Y, extraSize.X, extraSize.Y));
             }
 
             var level = spell.Level;
@@ -64,7 +64,7 @@ internal sealed class Low : BaseSpellMode
                 }
 
                 var color = !isLevel ? new Color(100, 10, 10, 190) : (isEnoughMana ? new Color(40, 40, 40, 180) : new Color(25, 25, 130, 190));
-                RendererManager.DrawFilledRectangle(new RectangleF(position.X + 1, position.Y, extraSize.X - 1, extraSize.Y), color, color, 0);
+                RendererManager.DrawFilledRectangle(new Rect(position.X + 1, position.Y, extraSize.X - 1, extraSize.Y), color, color, 0);
             }
 
             var notinvospell = heroId != HeroId.npc_dota_hero_invoker || (spell.AbilitySlot != AbilitySlot.Slot4 && spell.AbilitySlot != AbilitySlot.Slot5);
@@ -72,7 +72,7 @@ internal sealed class Low : BaseSpellMode
             {
                 for (var lvl = 1; lvl <= level; lvl++)
                 {
-                    var rect = new RectangleF(position.X + (extraSize.X * 0.212f * lvl) - extraSize.X * 0.08f, position.Y + 3, extraSize.X * 0.115f, extraSize.X * 0.115f);
+                    var rect = new Rect(position.X + (extraSize.X * 0.212f * lvl) - extraSize.X * 0.08f, position.Y + 3, extraSize.X * 0.115f, extraSize.X * 0.115f);
                     RendererManager.DrawFilledRectangle(rect, Color.Zero, new Color(255, 255, 0), 0);
                 }
             }
@@ -105,7 +105,7 @@ internal sealed class Low : BaseSpellMode
                 RendererManager.DrawText(manaText, pos, Color.LightBlue, extraSize.X / 2 + 1);
             }
 
-            RendererManager.DrawRectangle(new RectangleF(position.X, position.Y, extraSize.X + 1 + extraRange.X, extraSize.Y + extraRange.Y), Color.Black, 1);
+            RendererManager.DrawRectangle(new Rect(position.X, position.Y, extraSize.X + 1 + extraRange.X, extraSize.Y + extraRange.Y), Color.Black, 1);
 
             position += new Vector2(extraSize.X + extraRange.X, 0);
         }
