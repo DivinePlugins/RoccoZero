@@ -4,6 +4,6 @@
     "rollForward": "disable"
   },
   "msbuild-sdks": {
-    "Divine.Sdk": "1.2.10-dev.79"
+    "Divine.Sdk": "1.2.10-dev.80"
   }
 }
