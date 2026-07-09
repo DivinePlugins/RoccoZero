@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="Zero.Core/Zero.Core.csproj" />
-  <Project Path="Zero.SkywrathMage/Zero.SkywrathMage.csproj" />
-  <Project Path="Zero.Zeus/Zero.Zeus.csproj" />
-</Solution>

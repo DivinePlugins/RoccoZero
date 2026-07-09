@@ -1,4 +1,4 @@
-﻿using Divine.Core.ComboFactory;
+using Divine.Core.ComboFactory;
 using Divine.Core.ComboFactory.Menus;
 using Divine.Core.ComboFactory.Menus.Combo;
 using Divine.Core.Entities;
@@ -148,7 +148,7 @@ namespace Divine.SkywrathMage.Helpers
                     targetHit.Base,
                     new ControlPoint(0, position),
                     new ControlPoint(1, position),
-                    new ControlPoint(2, 1000));
+                    new ControlPoint(2, 1000f));
             }
             else
             {

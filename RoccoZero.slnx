@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="src/BeAware/BeAware.csproj" />
+  <Project Path="src/Zero/Zero.Core/Zero.Core.csproj" />
+  <Project Path="src/Zero/Zero.SkywrathMage/Zero.SkywrathMage.csproj" />
+  <Project Path="src/Zero/Zero.Zeus/Zero.Zeus.csproj" />
 </Solution>
