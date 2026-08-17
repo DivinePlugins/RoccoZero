@@ -13,16 +13,6 @@ namespace Divine.Core.Extensions
             return target.Position.IsInRange(sourcePosition, range);
         }
 
-        public static bool IsUnderRectangle(this Vector2 position, Rect rectangleF)
-        {
-            return position.IsUnderRectangle(rectangleF.X, rectangleF.Y, rectangleF.Width, rectangleF.Height);
-        }
-
-        public static bool IsUnderRectangle(this Vector2 position, float x, float y, float width, float height)
-        {
-            return position.X > x && position.X <= x + width && position.Y > y && position.Y <= y + height;
-        }
-
         public static bool MoveTowards(this Vector2 current, Vector2 target, float maxDistanceDelta, out Vector2 result)
         {
             var x = target.X - current.X;

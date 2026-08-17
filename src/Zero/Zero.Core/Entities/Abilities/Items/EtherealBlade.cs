@@ -12,8 +12,6 @@ using Divine.Entity.Entities.Units.Components;
 using Divine.Entity.Entities.Units.Heroes;
 using Divine.Entity.Entities.Units.Heroes.Components;
 
-using Attribute = Divine.Entity.Entities.Units.Heroes.Components.Attribute;
-
 namespace Divine.Core.Entities.Abilities.Items
 {
     [Item(AbilityId.item_ethereal_blade)]
@@ -60,13 +58,13 @@ namespace Divine.Core.Entities.Abilities.Items
                     var multiplier = GetAbilitySpecialData("blast_agility_multiplier"); // 2.0
                     switch (hero.PrimaryAttribute)
                     {
-                        case Attribute.Strength:
+                        case HeroAttribute.Strength:
                             damage += multiplier * hero.TotalStrength;
                             break;
-                        case Attribute.Agility:
+                        case HeroAttribute.Agility:
                             damage += multiplier * hero.TotalAgility;
                             break;
-                        case Attribute.Intelligence:
+                        case HeroAttribute.Intelligence:
                             damage += multiplier * hero.TotalIntelligence;
                             break;
                     }

@@ -1,8 +1,10 @@
-﻿using Divine.Core.Entities;
+using Divine.Core.Entities;
 using Divine.Core.Extensions;
 using Divine.Core.Managers.Orbwalker;
 using Divine.Core.Managers.Unit;
 using Divine.Game;
+
+using OrbwalkerManager = Divine.Core.Managers.Orbwalker.OrbwalkerManager;
 
 namespace Divine.Core.ComboFactory
 {
