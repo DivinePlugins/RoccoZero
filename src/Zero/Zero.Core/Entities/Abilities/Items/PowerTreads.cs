@@ -2,9 +2,8 @@ using Divine.Core.Entities.Abilities.Items.Bases;
 using Divine.Core.Entities.Metadata;
 using Divine.Entity.Entities.Abilities.Components;
 using Divine.Entity.Entities.Abilities.Items;
+using Divine.Entity.Entities.Units.Heroes.Components;
 using Divine.Game;
-
-using Attribute = Divine.Entity.Entities.Units.Heroes.Components.Attribute;
 
 namespace Divine.Core.Entities.Abilities.Items
 {
@@ -19,7 +18,7 @@ namespace Divine.Core.Entities.Abilities.Items
 
         public new Entity.Entities.Abilities.Items.PowerTreads Base { get; }
 
-        public Attribute ActiveAttribute
+        public HeroAttribute ActiveAttribute
         {
             get
             {
@@ -27,7 +26,7 @@ namespace Divine.Core.Entities.Abilities.Items
             }
         }
 
-        public bool SwitchAttribute(Attribute attribute)
+        public bool SwitchAttribute(HeroAttribute attribute)
         {
             if (!CanBeCasted)
             {
@@ -39,32 +38,32 @@ namespace Divine.Core.Entities.Abilities.Items
 
             switch (attribute)
             {
-                case Attribute.Strength:
-                    if (activeAttribute == Attribute.Intelligence)
+                case HeroAttribute.Strength:
+                    if (activeAttribute == HeroAttribute.Intelligence)
                     {
                         result = UseAbility() && UseAbility();
                     }
-                    else if (activeAttribute == Attribute.Agility)
+                    else if (activeAttribute == HeroAttribute.Agility)
                     {
                         result = UseAbility();
                     }
                     break;
-                case Attribute.Intelligence:
-                    if (activeAttribute == Attribute.Agility)
+                case HeroAttribute.Intelligence:
+                    if (activeAttribute == HeroAttribute.Agility)
                     {
                         result = UseAbility() && UseAbility();
                     }
-                    else if (activeAttribute == Attribute.Strength)
+                    else if (activeAttribute == HeroAttribute.Strength)
                     {
                         result = UseAbility();
                     }
                     break;
-                case Attribute.Agility:
-                    if (activeAttribute == Attribute.Strength)
+                case HeroAttribute.Agility:
+                    if (activeAttribute == HeroAttribute.Strength)
                     {
                         result = UseAbility() && UseAbility();
                     }
-                    else if (activeAttribute == Attribute.Intelligence)
+                    else if (activeAttribute == HeroAttribute.Intelligence)
                     {
                         result = UseAbility();
                     }

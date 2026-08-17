@@ -8,6 +8,7 @@ using Divine.Game;
 using Divine.Numerics;
 using Divine.Particle;
 using Divine.Particle.Components;
+using Divine.Particle.Numerics;
 using Divine.SkywrathMage.Menus;
 
 namespace Divine.SkywrathMage.Helpers

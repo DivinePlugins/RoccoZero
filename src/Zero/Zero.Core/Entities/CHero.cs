@@ -1,4 +1,4 @@
-﻿namespace Divine.Core.Entities;
+namespace Divine.Core.Entities;
 
 using Divine.Core.Entities.Utilities;
 using Divine.Core.Managers.Unit;
@@ -149,7 +149,7 @@ public class CHero : CUnit
         }
     }
 
-    public Attribute PrimaryAttribute { get; }
+    public HeroAttribute PrimaryAttribute { get; }
 
     public bool IsBuybackDisabled
     {

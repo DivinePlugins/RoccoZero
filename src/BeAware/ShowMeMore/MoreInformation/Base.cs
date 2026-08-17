@@ -1,4 +1,4 @@
-﻿namespace BeAware.ShowMeMore.MoreInformation;
+namespace BeAware.ShowMeMore.MoreInformation;
 
 using System.Text;
 
@@ -16,6 +16,7 @@ using Divine.Modifier.Modifiers;
 using Divine.Numerics;
 using Divine.Particle;
 using Divine.Particle.Components;
+using Divine.Particle.Numerics;
 using Divine.Particle.Particles;
 
 internal abstract class Base
@@ -76,7 +77,7 @@ internal abstract class Base
         ParticleManager.CreateParticle(
             $"DrawRange_{id}",
             @"materials\ensage_ui\particles\alert_range.vpcf",
-            Attachment.CustomOrigin,
+            ParticleAttachment.CustomOrigin,
             new ControlPoint(0, position),
             new ControlPoint(1, color),
             new ControlPoint(2, radius, 255, alpha));
@@ -92,7 +93,7 @@ internal abstract class Base
         ParticleManager.CreateParticle(
             $"DrawLine_{id}",
             @"materials\ensage_ui\particles\rectangle.vpcf",
-            Attachment.CustomOrigin,
+            ParticleAttachment.CustomOrigin,
             new ControlPoint(1, startPosition),
             new ControlPoint(2, endPosition),
             new ControlPoint(3, size, alpha, 0),

@@ -1,9 +1,9 @@
-﻿{
+{
   "sdk": {
-    "version": "10.0.300",
+    "version": "10.0.301",
     "rollForward": "disable"
   },
   "msbuild-sdks": {
-    "Divine.Sdk": "1.4.1-dev.132"
+    "Divine.Sdk": "1.4.6"
   }
 }
