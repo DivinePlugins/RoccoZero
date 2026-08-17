@@ -266,7 +266,7 @@ public class CUnit : CEntity
 
     public Vector3 InFront(float range, bool rotationDifference = true)
     {
-        var rotationRad = RotationRad + (rotationDifference ? MathUtil.DegreesToRadians(RotationDifference) : 0f);
+        var rotationRad = RotationRad + (rotationDifference ? MathHelper.ToRadians(RotationDifference) : 0f);
         return Position + new Vector3((float)Math.Cos(rotationRad), (float)Math.Sin(rotationRad), 0f) * range;
     }
 
@@ -330,7 +330,7 @@ public class CUnit : CEntity
 
     public float GetRotationAngle(Vector3 position, bool rotationDifference = false)
     {
-        var angle = Math.Abs(Math.Atan2(position.Y - Position.Y, position.X - Position.X) - (rotationDifference ? MathUtil.DegreesToRadians(RotationDifference + NetworkRotation) : NetworkRotationRad));
+        var angle = Math.Abs(Math.Atan2(position.Y - Position.Y, position.X - Position.X) - (rotationDifference ? MathHelper.ToRadians(RotationDifference + NetworkRotation) : NetworkRotationRad));
         if (angle > Math.PI)
         {
             angle = Math.Abs((Math.PI * 2) - angle);
