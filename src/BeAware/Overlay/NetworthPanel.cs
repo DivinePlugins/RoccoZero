@@ -99,7 +99,7 @@ internal class NetworthPanel
         NetworthPanelMenu.PositionYItem.Value = (int)position.Y;
     }
 
-    private void OnEntityAdded(EntityAddedEventArgs e)
+    private void OnEntityAdded(ref EntityAddedEventArgs e)
     {
         if (e.Entity is not Item item)
         {
@@ -154,7 +154,7 @@ internal class NetworthPanel
         }
     }
 
-    private void OnEntityRemoved(EntityRemovedEventArgs e)
+    private void OnEntityRemoved(ref EntityRemovedEventArgs e)
     {
         if (e.Entity is not Item item)
         {

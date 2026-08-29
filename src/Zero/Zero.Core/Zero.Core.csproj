@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="$(SolutionDir)Zero.SkywrathMage\Resources" />
-    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="$(SolutionDir)Zero.Zeus\Resources" />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="..\Zero.SkywrathMage\Resources" />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="..\Zero.Zeus\Resources" />
   </Target>
 
 </Project>

@@ -77,7 +77,7 @@ internal sealed class UnitMonitor
         return false;
     }
 
-    private void OnEntityAdded(EntityAddedEventArgs e)
+    private void OnEntityAdded(ref EntityAddedEventArgs e)
     {
         try
         {

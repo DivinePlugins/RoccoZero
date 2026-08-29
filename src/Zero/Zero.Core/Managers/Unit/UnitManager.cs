@@ -107,7 +107,7 @@ public sealed class UnitManager
 
     public static event UnitEventHandler AttackEnd;
 
-    private static void OnEntityAdded(EntityAddedEventArgs e)
+    private static void OnEntityAdded(ref EntityAddedEventArgs e)
     {
         var entity = e.Entity;
         if (entity is DivineAbility ability)
@@ -125,7 +125,7 @@ public sealed class UnitManager
         AddUnit(unit);
     }
 
-    private static void OnEntityRemoved(EntityRemovedEventArgs e)
+    private static void OnEntityRemoved(ref EntityRemovedEventArgs e)
     {
         var entity = e.Entity;
         if (entity is DivineAbility ability)
