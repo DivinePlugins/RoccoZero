@@ -1,4 +1,4 @@
-﻿namespace Divine.Core.Entities;
+namespace Divine.Core.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -416,7 +416,7 @@ public class CAbility : CEntity
         }
     }
 
-    public KeyValue KeyValue
+    public KeyValues KeyValues
     {
         get
         {

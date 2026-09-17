@@ -282,7 +282,7 @@ public class CUnit : CEntity
             {
                 try
                 {
-                    attackAnimationPoint = ((Base is Hero) ? Hero.GetKeyValueByName(Base.Name) : Unit.GetKeyValueByName(Base.Name)).GetSubKey("AttackAnimationPoint").GetSingle();
+                    attackAnimationPoint = ((Base is Hero) ? Hero.GetKeyValueByName(Base.Name) : Unit.GetKeyValueByName(Base.Name))["AttackAnimationPoint"].GetSingle();
                 }
                 catch
                 {
@@ -369,7 +369,7 @@ public class CUnit : CEntity
             {
                 try
                 {
-                    turnRate = ((Base is Hero) ? Hero.GetKeyValueByName(Base.Name) : Unit.GetKeyValueByName(Base.Name)).GetSubKey("MovementTurnRate").GetSingle();
+                    turnRate = ((Base is Hero) ? Hero.GetKeyValueByName(Base.Name) : Unit.GetKeyValueByName(Base.Name))["MovementTurnRate"].GetSingle();
                 }
                 catch
                 {
